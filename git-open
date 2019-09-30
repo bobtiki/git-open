@@ -20,7 +20,6 @@ c,commit!     open current commit
 i,issue!      open issues page
 s,suffix=     append this suffix
 p,print!      just print the url
-b,browser=    open in this browser (only on Mac/Darwin)
 "
 
 # https://github.com/koalaman/shellcheck/wiki/SC1090
@@ -32,7 +31,6 @@ is_commit=0
 is_issue=0
 protocol="https"
 print_only=0
-browser_flag=""
 suffix_flag=""
 
 while test $# != 0; do
@@ -41,7 +39,6 @@ while test $# != 0; do
   --issue) is_issue=1;;
   --suffix=*) suffix_flag="$1";;
   --print) print_only=1;;
-  --browser=*) browser_flag="$1";;
   --) shift; break ;;
   esac
   shift
@@ -50,10 +47,6 @@ done
 # parse suffix from suffix=value
 IFS='=' read -ra suffix_flag <<< "$suffix_flag"
 suffix=${suffix_flag[1]}
-
-# parse browser from browser=value
-IFS='=' read -ra browser_flag <<< "$browser_flag"
-browser=${browser_flag[1]}
 
 # are we in a git repo?
 if ! git rev-parse --is-inside-work-tree &>/dev/null; then
@@ -269,10 +262,6 @@ case $( uname -s ) in
               open='xdg-open'
             fi;;
 esac
-
-if [ "$browser" ]; then
-    open="$open -a $browser"
-fi
 
 if (( print_only )); then
   BROWSER="echo"
