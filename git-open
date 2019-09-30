@@ -257,6 +257,7 @@ if [ "$suffix" ]; then
 fi
 
 # get current open browser command
+# TODO: Also get current alt browser launch command
 case $( uname -s ) in
   Darwin)   open='open';;
   MINGW*)   open='start';;
@@ -270,6 +271,7 @@ case $( uname -s ) in
             fi;;
 esac
 
+# FIXME: This only works under Darwin, that I know of
 if [ "$browser" ]; then
     open="$open -a $browser"
 fi
