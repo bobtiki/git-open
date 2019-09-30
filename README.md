@@ -35,6 +35,9 @@ $ git open --print
 
 $ git open --suffix pulls
 # opens https://github.com/TRACKED_REMOTE_USER/CURRENT_REPO/pulls
+
+$ git open --browser firefox
+# opens the given URL in the Firefox browser
 ```
 
 ## Installation
@@ -163,7 +166,7 @@ Copyright Jason McCreary & Paul Irish. Licensed under MIT.
 
 ## Changelog
 
-
+- **2019-09-30** - `--browser` added
 - **2018-12-03** - [2.1.0 shipped](https://github.com/paulirish/git-open/releases/tag/v2.1.0). 
 - **2017-12-01** - [2.0 shipped](https://github.com/paulirish/git-open/releases/tag/v2.0.0). Breaking change: [Gitlab configuration](https://github.com/paulirish/git-open#configuration) handled differently.
 - **2017-12-01** - Configuration for custom remote added

@@ -3,7 +3,7 @@
 
 ## SYNOPSIS
 
-`git open` [--issue] [--commit] [--suffix some_suffix] [remote-name] [branch-name]
+`git open` [--issue] [--commit] [--suffix some_suffix] [--browser browser_name] [remote-name] [branch-name]
 
 
 ## DESCRIPTION
@@ -25,6 +25,9 @@ git hosting services are supported.
 
 `-s`, `--suffix` some_suffix
   Append the given suffix to the url
+
+`-b`, `--browser` browser_name
+  Open the url with the given browser (instead of the system default)
 
 `-p`, `--print`
   Just print the URL. Do not open it in browser.
@@ -64,6 +67,12 @@ git open --suffix pulls
 ```
 
 It opens the URL https://github.com/TRACKED_REMOTE_USER/CURRENT_REPO/pulls
+
+```sh
+git open --browser firefox
+```
+
+It opens the URL https://github.com/TRACKED_REMOTE_USER/CURRENT_REPO/ in the Firefox browser instead of the system default browser.
 
 ```sh
 git open --print
