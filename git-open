@@ -51,9 +51,9 @@ done
 IFS='=' read -ra suffix_flag <<< "$suffix_flag"
 suffix=${suffix_flag[1]}
 
-# parse browser from browser=value
+# parse browser_name from browser=value
 IFS='=' read -ra browser_flag <<< "$browser_flag"
-browser=${browser_flag[1]}
+browser_name=${browser_flag[1]}
 
 # are we in a git repo?
 if ! git rev-parse --is-inside-work-tree &>/dev/null; then
