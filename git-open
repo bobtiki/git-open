@@ -19,8 +19,8 @@ git open [remote] [branch]
 c,commit!     open current commit
 i,issue!      open issues page
 s,suffix=     append this suffix
-p,print!      just print the url
 b,browser=    open in this browser (only on Mac/Darwin)
+p,print!      just print the url
 "
 
 # https://github.com/koalaman/shellcheck/wiki/SC1090
@@ -272,9 +272,11 @@ case $( uname -s ) in
 esac
 
 # FIXME: This only works under Darwin, that I know of
-if [ "$browser" ]; then
-    open="$open -a $browser"
-fi
+# if [ "$browser_name" ]; then
+#   browser_name="\"$browser_name\""
+#   open="${open} -a ${browser_name}"
+#   echo $open
+# fi
 
 if (( print_only )); then
   BROWSER="echo"
@@ -286,4 +288,8 @@ if [[ $BROWSER != "echo" ]]; then
 fi
 
 # open it in a browser
-${BROWSER:-$open} "$openurl"
+if [ "$browser_name" ]; then
+  ${BROWSER:-$open} -a "$browser_name" "$openurl"
+else
+  ${BROWSER:-$open} "$openurl"
+fi
