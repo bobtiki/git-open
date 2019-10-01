@@ -271,18 +271,11 @@ case $( uname -s ) in
             fi;;
 esac
 
-if (( print_only )); then
-  BROWSER="echo"
-fi
-
-# Allow printing the url if BROWSER=echo
-if [[ $BROWSER != "echo" ]]; then
-  exec &>/dev/null
-fi
-
-# FIXME: This browser flag technique only works under Darwin, that I know of
 # open it in a browser
-if [ "$browser_name" ]; then
+if (( print_only )); then
+  echo "$openurl"
+elif [ "$browser_name" ]; then
+  # FIXME: This browser flag technique currently only works under Darwin
   ${BROWSER:-$open} -a "$browser_name" "$openurl"
 else
   ${BROWSER:-$open} "$openurl"
