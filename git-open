@@ -271,13 +271,6 @@ case $( uname -s ) in
             fi;;
 esac
 
-# FIXME: This only works under Darwin, that I know of
-# if [ "$browser_name" ]; then
-#   browser_name="\"$browser_name\""
-#   open="${open} -a ${browser_name}"
-#   echo $open
-# fi
-
 if (( print_only )); then
   BROWSER="echo"
 fi
@@ -287,6 +280,7 @@ if [[ $BROWSER != "echo" ]]; then
   exec &>/dev/null
 fi
 
+# FIXME: This browser flag technique only works under Darwin, that I know of
 # open it in a browser
 if [ "$browser_name" ]; then
   ${BROWSER:-$open} -a "$browser_name" "$openurl"
