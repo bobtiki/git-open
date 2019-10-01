@@ -4,3 +4,6 @@
 # ZSH framework like Zgen or Antigen
 
   export PATH=$(dirname $0):${PATH}
+  alias gos="git open --browser Safari"
+  alias gof="git open --browser Firefox"
+  alias goc="git open --browser 'Google Chrome'"
