@@ -40,6 +40,19 @@ $ git open --browser firefox
 # opens the given URL in the Firefox browser
 ```
 
+In the ZSH plugin, this also installs three aliases:
+
+```sh
+$ gos
+# git open --browser Safari
+
+$ gof
+# git open --browser Firefox
+
+$ goc
+# git open --browser "Google Chrome"
+```
+
 ## Installation
 
 ### Basic install
